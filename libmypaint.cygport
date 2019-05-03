@@ -1,0 +1,29 @@
+NAME="libmypaint"
+VERSION=1.3.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="MyPaint brush library"
+DESCRIPTION="This is the brush library used by MyPaint. A number of other
+painting programs use it too."
+HOMEPAGE="http://mypaint.org/"
+SRC_URI="https://github.com/mypaint/libmypaint/releases/download/v${VERSION}/libmypaint-${VERSION}.tar.xz"
+PATCH_URI="
+	https://src.fedoraproject.org/rpms/libmypaint/raw/master/f/libmypaint-1.3.0-gegl04.patch
+	https://src.fedoraproject.org/rpms/libmypaint/raw/master/f/libmypaint-1.3.0-sphinx18.patch
+"
+
+PKG_NAMES="libmypaint1.3_0 libmypaint-common libmypaint-devel girepository-MyPaint1.3"
+libmypaint1_3_0_REQUIRES="libmypaint-common"
+libmypaint1_3_0_CONTENTS="
+	usr/bin/cygmypaint-1-3-0.dll
+"
+libmypaint_common_CONTENTS="
+	usr/share/doc/${NAME}
+	usr/share/locale/*/*/libmypaint.mo
+"
+libmypaint_devel_CONTENTS="
+	usr/include/libmypaint/
+	usr/lib/libmypaint.dll.a
+	usr/lib/pkgconfig/libmypaint.pc
+"
+girepository_MyPaint1_3_CONTENTS="usr/*/gir*-1.0/MyPaint-1.3.*"
